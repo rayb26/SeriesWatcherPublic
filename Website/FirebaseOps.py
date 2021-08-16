@@ -2,7 +2,7 @@
 from firebase_admin import credentials
 import firebase_admin
 
-cred = credentials.Certificate('#your firebase table')
+cred = credentials.Certificate('#your firebase credentials json file')
 
 firebase_admin.initialize_app(cred, {
     'databaseURL': '#your database url'
