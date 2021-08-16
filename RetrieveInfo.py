@@ -1,3 +1,4 @@
+# Code created by Rayhan Biju 2021
 from urllib.request import urlopen
 
 import requests
@@ -9,8 +10,7 @@ from lxml.html import parse
 url = "https://imdb8.p.rapidapi.com/title/find"
 
 headers = {
-    'x-rapidapi-key': "1c312608dbmsh9fb7c83bf592c2ap1d82e3jsn414181dbe2b2",
-    'x-rapidapi-host': "imdb8.p.rapidapi.com"
+    # add your api keys here from rapidapi
 }
 
 
