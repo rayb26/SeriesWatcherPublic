@@ -2,7 +2,6 @@
 
 from Website import create_app
 from flask import render_template
-import python_jwt
 
 app = create_app()
 
