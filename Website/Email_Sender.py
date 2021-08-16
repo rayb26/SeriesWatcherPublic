@@ -4,7 +4,7 @@ from sendgrid.helpers.mail import Mail
 
 
 def send_confirmation_email(email, title):
-    message = Mail(from_email='from email address', to_emails=email,
+    message = Mail(from_email='#from email address', to_emails=email,
                    subject="Your now in the loop for " + title,
                    plain_text_content="Hello!\nYou'll now be one of the first people to know when " + title + " releases more "
                                                                                                               "episodes"
