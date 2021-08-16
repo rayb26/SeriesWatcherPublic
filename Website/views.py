@@ -7,7 +7,7 @@ from . import FirebaseOps, Email_Sender
 
 views = Blueprint('views', __name__)
 
-firebase = firebase.FirebaseApplication("https://fir-project-65f8b.firebaseio.com/", None)
+firebase = firebase.FirebaseApplication("#firebase project url", None)
 
 
 @views.route('/', methods=['GET', 'POST'])
@@ -63,11 +63,10 @@ def subscribe():
                 'title_id': title_id,
 
             }
-            # Reconfigure below in production
 
             Email_Sender.send_confirmation_email(data.get('email'), tv_series)
 
-            firebase.post('/fir-project-65f8b/Alerts', data_to_send)
+            firebase.post('#table path for firebase', data_to_send)
             flash('Success, you will get an email when your series comes out!', category='success')
 
             email_cookie = make_response(redirect('/subscribe'))
@@ -106,6 +105,6 @@ def subscribe_tv(tv_series_browse):
 
             }
 
-            firebase.post('/fir-project-65f8b/Alerts', data_to_send)
+            firebase.post('#your firebase table', data_to_send)
             flash('Success, you will get an email when your series comes out!', category='success')
     return render_template('subscribe.html', tv_series_browse=tv_series_browse, email=request.cookies.get('email'))
