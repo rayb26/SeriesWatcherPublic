@@ -1,0 +1,92 @@
+<!-- Code created by Rayhan Biju 2021 -->
+
+{% extends "base.html" %}
+
+{% block title %} Browse {% endblock %}
+
+{% block content %}
+
+<h1 xmlns="http://www.w3.org/1999/html"> <center> Browse </center></h1>
+
+
+  <style>
+
+.cookies a {
+    text-decoration: none;
+    color: #000;
+    margin-top: 8px
+}
+
+.cookies a:hover {
+    text-decoration: none;
+    color: blue;
+    margin-top: 8px
+}
+      </style>
+
+<br>
+
+
+<br>
+<form method="POST">
+
+<div class="input-group">
+  <input type="search" class="form-control rounded" placeholder="Search TV Shows" aria-label="Search"
+    aria-describedby="search-addon" id="tv_series" name="tv_series" />
+  <button type="submit" class="btn btn-outline-primary">search</button>
+
+</div>
+      <br>
+    <br>
+    <br>
+
+
+    <div id="cookie_consent" style="visibility:hidden;">
+
+ <div class="d-flex justify-content-center mt-10 h-200">
+     <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><strong> Our Cookie Policy </strong>
+         <span class="mt-2">We use cookies to personalize your content </span>
+         <a class="d-flex align-items-center" href="https://policies.google.com/technologies/cookies?hl=en-US" target="_blank">Learn more
+             <i class="fa fa-angle-right ml-2"></i></a> <a href = "/"><button class="btn btn-dark mt-3 px-4" type="button">Okay</button> </a></div>
+
+
+
+    </div>
+    </div>
+
+    <script>
+
+    var visited = localStorage.getItem('visited');
+
+    if (visited == null) {
+        document.getElementById("cookie_consent").style.visibility = "visible";
+        localStorage.setItem('visited', true);
+    }
+
+    </script>
+
+
+    {% if tv_series %}
+
+   <center><div class="card" id="showDiv" style="width: 100;">
+
+  <img class="img-thumbnail" src="{{img_src}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{tv_series}}</h5>
+    <p class="card-text">{{description}}</p>
+      <form method = "POST">
+    <a href="/subscribe/{{tv_series}}" name="notify" class="btn btn-primary">Notify Me</a>
+      </form>
+
+  </div>
+              </div>
+
+          </center>
+</form>
+
+{% endif %}
+
+
+{% endblock %}
+
+

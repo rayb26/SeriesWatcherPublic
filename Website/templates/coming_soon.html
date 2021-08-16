@@ -1,0 +1,25 @@
+<!-- Code created by Rayhan Biju 2021 -->
+
+{% extends "base.html" %} {% block title %}Coming Soon{% endblock %} {% block content
+%}
+<h1 align="center">Coming Soon</h1>
+<ul class="list-group list-group-flush" id="notes">
+
+  {% if coming_soon_titles is not none %}
+
+  {% for title in coming_soon_titles %}
+  <li class="list-group-item">
+    {{ title }}
+    <tr>
+  <a href = "/subscribe/{{title}}"> <button type="button" class="close">
+
+
+    <span aria-hidden="true"><small>Notify Me </small> </span>    </button></a>
+
+
+  </li>
+  {% endfor %}
+  {% endif %}
+</ul>
+
+{% endblock %}

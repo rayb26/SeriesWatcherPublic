@@ -1,0 +1,60 @@
+<!-- Code created by Rayhan Biju 2021 -->
+{% extends "base.html" %} {% block title %}Choose Series{% endblock %} {% block
+content %}
+
+
+<form method="POST">
+  <h3 align="center">Subscribe to Alert</h3>
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Enter email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="tv_series">TV Series</label>
+    <input
+      type="text"
+      class="form-control"
+      id="tv_series"
+      name="tv_series"
+      placeholder="Enter tv series"
+    />
+
+    <small> By clicking the 'Notify Me' button, you consent to receiving emails to your listed email address from us</small>
+
+
+    <script type = "text/javascript">
+
+    localStorage.setItem("email_data", "{{email}}");
+
+    if (localStorage.getItem("email_data") != "None") {
+
+        document.getElementById("email").setAttribute("value", localStorage.getItem("email_data"));
+        document.getElementById("tv_series").setAttribute("value", "{{tv_series_browse}}");
+
+    }
+
+    else if ("{{email}}" != "None") {
+         document.getElementById("email").setAttribute("value", "{{email}}");
+         document.getElementById("tv_series").setAttribute("value", "{{tv_series_browse}}");
+
+    }
+
+    else {
+
+         document.getElementById("tv_series").setAttribute("value", "{{tv_series_browse}}");
+
+    }
+
+    </script>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Notify Me</button>
+</form>
+{% endblock %}
